@@ -1,12 +1,9 @@
 // run `node index.js` in the terminal
 // console.log(`Hello Node.js v${process.versions.node}!`);
-
 //Revisar que es -g
 // npm i -g typescript = Instala typescript
-
 //Crear un archivo js a partir de un tsc
 //tsc nombreArchivo.ts
-
 //Crea un archivo tsconfig.json, configura las opciones de compilacion.
 // tsc --init
 //OPCIONES VISTAS
@@ -20,11 +17,7 @@
 //"notEmitOnError":false
 //No emite comentarios en el codigo js
 //"removeComments":true
-//Este comando corre (tsc) si se configura donde estan mis archivos .ts y donde generar los archivos .js en el
-//archivo tsconfig.json
+//Este comando corre (tsc) si se configura donde estan mis archivos .ts y donde generar los archivos .js
 //tsc
-//Este comando corre si no configuras nada del archivo tsconfig.json
-//tsc src/index.ts
-
-let mensaje: string = 'hola mundo';
+var mensaje = 'hola mundo';
 mensaje = 'hola';
