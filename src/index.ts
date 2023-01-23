@@ -62,3 +62,67 @@ const myfunction = (mensaje: string) => console.log(mensaje);
 /*Arreglo con longitud 2 indicando el tipo en cada posicion puede ser del tamaño que quieras*/
 let tupla: [number, string] = [1, 'hola'];
 let tupla2: [number, string[], string] = [1, ['hola', 'adios'], 'hello'];
+
+//ENUMS***************************************************
+//sin enums
+const chica = 's';
+const mediana = 'm';
+const grande = 'l';
+const extraGrande = 'xl';
+
+//con enums
+//Ejemplos enum
+// enum Talla {
+//   Chica = 2,
+//   Mediana,
+//   Grande,
+//   ExtraGrande,
+// }
+// enum Talla {
+//   Chica = 's',
+//   Mediana = 'm',
+//   Grande = 'l',
+//   ExtraGrande = 'xl',
+// }
+//Enum se usa con PascalCase y tienen indices desde el 0 por defecto como un array, por const antes del enum para codigo mas optimizado
+const enum Talla {
+  Chica,
+  Mediana,
+  Grande,
+  ExtraGrande,
+}
+
+const variable1 = Talla.Chica;
+console.log(variable1);
+
+const enum LoadingState {
+  Idle,
+  Loading,
+  Success,
+  Error,
+}
+const estado = LoadingState.Success;
+console.log(estado);
+
+//OBJETOS***********************************************************
+type Direccion = {
+  numero: number;
+  calle: string;
+  pais: string;
+};
+type Persona = {
+  readonly id: number /*Con readonly solo puedes asignar el valor 1 vez.*/;
+  nombre: string;
+  apellido?: string /*Con el signo ? puede ser opcional*/;
+  talla: Talla /*Propiedad del tipo del enum que cree*/;
+  direccion: Direccion;
+};
+
+const myObjeto: Persona = {
+  id: 1,
+  nombre: 'luis',
+  talla: Talla.Chica,
+  direccion: { numero: 1, calle: 'uno', pais: 'mexico' },
+};
+
+const myArray: Persona[] = [myObjeto];
