@@ -19,7 +19,29 @@ const mediana = 'm';
 const grande = 'l';
 const extraGrande = 'xl';
 const variable1 = 0;
-console.log(variable1);
+console.log('variable1=', variable1);
 const estado = 2;
-console.log(estado);
+console.log('loading state', estado);
+const myObjeto = {
+    id: 1,
+    nombre: 'luis',
+    talla: 0,
+    direccion: { numero: 1, calle: 'uno', pais: 'mexico' },
+};
+console.log(myObjeto);
+const myArray = [myObjeto];
+const myFuncion = (edad) => {
+    let result = '';
+    edad > 17 ? (result = 'mayor de edad') : (result = 'menor de edad');
+    return result;
+};
+function unaFuncion(edad, user = 'luis') {
+    let result = '';
+    if (edad > 17)
+        result = `Eres mayor de edad ${user}`;
+    else
+        result = `No eres mayor de edad ${user}`;
+    return result;
+}
+console.log(myFuncion(18));
 //# sourceMappingURL=index.js.map

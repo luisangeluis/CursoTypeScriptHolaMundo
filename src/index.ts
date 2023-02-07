@@ -18,6 +18,9 @@
 //"notEmitOnError":false
 //No emite comentarios en el codigo js
 //"removeComments":true
+//Habilitar en configuraciones tsconfig noUnusedParameters:true como
+//configuracion inicial para detectar parametros que no usas en una funcion
+//Habilitar en tsconfig noImplicitReturns:true para que mi funcion siempr pida un tipo de retorno.
 //Este comando corre (tsc) si se configura donde estan mis archivos .ts y donde generar los archivos .js en el
 //archivo tsconfig.json
 //tsc
@@ -53,12 +56,14 @@ let extintos = true;
 let animales: string[] = ['perro', 'gato', 'raton'];
 let numbers: number[] = [1, 2, 3];
 let checks: boolean[] = [];
+//alternativa para definir el tipo de datos que contiene un array
 let numbers2: Array<number> = [];
 
 const myfunction = (mensaje: string) => console.log(mensaje);
 
 // animales.map(animal=>animal.) <- El autocompletado sugiere metodos del tipo de dato en el arrays
 
+//TUPLAS
 /*Arreglo con longitud 2 indicando el tipo en cada posicion puede ser del tamaño que quieras*/
 let tupla: [number, string] = [1, 'hola'];
 let tupla2: [number, string[], string] = [1, ['hola', 'adios'], 'hello'];
@@ -93,7 +98,7 @@ const enum Talla {
 }
 
 const variable1 = Talla.Chica;
-console.log(variable1);
+console.log('variable1=', variable1);
 
 const enum LoadingState {
   Idle,
@@ -102,7 +107,7 @@ const enum LoadingState {
   Error,
 }
 const estado = LoadingState.Success;
-console.log(estado);
+console.log('loading state', estado);
 
 //OBJETOS***********************************************************
 type Direccion = {
@@ -125,4 +130,25 @@ const myObjeto: Persona = {
   direccion: { numero: 1, calle: 'uno', pais: 'mexico' },
 };
 
+console.log(myObjeto);
+
 const myArray: Persona[] = [myObjeto];
+
+//FUNCIONES***********************************************************
+
+const myFuncion = (edad: number): string => {
+  let result = '';
+  edad > 17 ? (result = 'mayor de edad') : (result = 'menor de edad');
+
+  return result;
+};
+
+function unaFuncion(edad: number, user = 'luis'): string {
+  let result = '';
+  if (edad > 17) result = `Eres mayor de edad ${user}`;
+  else result = `No eres mayor de edad ${user}`;
+
+  return result;
+}
+
+console.log(myFuncion(18));
