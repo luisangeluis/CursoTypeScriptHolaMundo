@@ -44,4 +44,17 @@ function unaFuncion(edad, user = 'luis') {
     return result;
 }
 console.log(myFuncion(18));
+const errorUsuario = () => {
+    throw new Error('error de usuario');
+};
+let puntaje = 90;
+puntaje = 'hola';
+const animal = { id: 1, estado: '', name: '' };
+const sumaDos = (num) => {
+    if (typeof num === 'number') {
+        return num + 2;
+    }
+    return parseInt(num) + 2;
+};
+console.log(sumaDos('2'));
 //# sourceMappingURL=index.js.map

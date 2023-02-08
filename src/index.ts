@@ -152,3 +152,39 @@ function unaFuncion(edad: number, user = 'luis'): string {
 }
 
 console.log(myFuncion(18));
+
+//retorno NEVER en funciones son para retornar errores por ejemplo
+//Se recomienda poner never para indicar explicitamente que despachara un error.
+const errorUsuario = (): never => {
+  throw new Error('error de usuario');
+};
+
+//TIPOS AVANZADOS***********************************************************
+//Union type
+//Define que una variable puede ser de mas de un tipo, pero no eres recomendable poner muchos
+//tipos.
+
+let puntaje: number | string | boolean = 90;
+puntaje = 'hola';
+
+type Animal = {
+  id: number;
+  estado: string;
+};
+
+type Usuario = {
+  id: number;
+  name: string;
+};
+
+const animal: Animal | Usuario = { id: 1, estado: '', name: '' };
+
+//Union type con funciones
+const sumaDos = (num: number | string): number => {
+  if (typeof num === 'number') {
+    return num + 2;
+  }
+  return parseInt(num) + 2;
+};
+
+console.log(sumaDos('2'));
