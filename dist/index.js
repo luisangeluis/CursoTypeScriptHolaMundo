@@ -57,4 +57,21 @@ const sumaDos = (num) => {
     return parseInt(num) + 2;
 };
 console.log(sumaDos('2'));
+const product = { name: '', created_at: '', updated_at: '' };
+const nDeFibo = 5;
+const getUser = (id) => {
+    if (id < 0)
+        return null;
+    return { id, name: 'felipe', created_at: new Date() };
+};
+const user = getUser(1);
+console.log('usuario', user === null || user === void 0 ? void 0 : user.created_at);
+const arr1 = null;
+console.log('arreglo nulo', arr1 === null || arr1 === void 0 ? void 0 : arr1[0]);
+const fn5 = null;
+console.log(fn5 === null || fn5 === void 0 ? void 0 : fn5());
+const fn = (fn) => {
+    fn === null || fn === void 0 ? void 0 : fn();
+};
+console.log('ejecutando fn', fn(fn5));
 //# sourceMappingURL=index.js.map

@@ -188,3 +188,49 @@ const sumaDos = (num: number | string): number => {
 };
 
 console.log(sumaDos('2'));
+
+//Intersection type
+//Sirve para crear un nuevo tipo de variable a partir de 2 o mas diferentes
+type Audit = {
+  created_at: string;
+  updated_at: string;
+};
+
+type Product = {
+  name: string;
+};
+
+const product: Audit & Product = { name: '', created_at: '', updated_at: '' };
+
+//Literal types
+//En este indicas literalmente que informacion puede tener una variable de este tipo
+type Fibo = 0 | 1 | 2 | 3 | 5;
+
+const nDeFibo: Fibo = 5;
+
+//Optional chaining operator
+//ejemplo 1
+const getUser = (id: number) => {
+  if (id < 0) return null;
+  return { id, name: 'felipe', created_at: new Date() };
+};
+
+const user = getUser(1);
+
+console.log('usuario', user?.created_at);
+
+//ejemplo 2
+const arr1 = null;
+
+console.log('arreglo nulo', arr1?.[0]);
+
+//ejemplo 3
+const fn5: any = null;
+
+console.log(fn5?.());
+
+const fn = (fn: Function) => {
+  fn?.();
+};
+
+console.log('ejecutando fn', fn(fn5));
