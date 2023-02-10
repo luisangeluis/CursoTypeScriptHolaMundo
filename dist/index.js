@@ -74,4 +74,10 @@ const fn = (fn) => {
     fn === null || fn === void 0 ? void 0 : fn();
 };
 console.log('ejecutando fn', fn(fn5));
+const difficulty = 0;
+const user2 = {
+    userName: 'luis',
+    difficulty: difficulty !== null && difficulty !== void 0 ? difficulty : 1,
+};
+console.log(user2);
 //# sourceMappingURL=index.js.map

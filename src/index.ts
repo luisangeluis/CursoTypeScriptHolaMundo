@@ -33,7 +33,7 @@ console.log(mensaje);
 mensaje = 'adios';
 console.log(typeof []);
 
-//Tipos nativos JS******
+//Tipos nativos JS***********************************************************
 // number
 // string
 // boolean
@@ -41,14 +41,14 @@ console.log(typeof []);
 // undefined
 // object
 // function
-//Tipos de TS******
+//Tipos de TS***********************************************************
 //any <- no usar nunca
 //unknow
 // never
 //arrays
 //tuplas
 //Enums//
-//Tipos inferidos
+//Tipos inferidos***********************************************************
 //Siempre declarar el tipo o inicializarla con un valor para que ts lo infiera.
 let num = 10;
 let nam: string = 'luis';
@@ -68,7 +68,7 @@ const myfunction = (mensaje: string) => console.log(mensaje);
 let tupla: [number, string] = [1, 'hola'];
 let tupla2: [number, string[], string] = [1, ['hola', 'adios'], 'hello'];
 
-//ENUMS***************************************************
+//ENUMS***********************************************************
 //sin enums
 const chica = 's';
 const mediana = 'm';
@@ -234,3 +234,48 @@ const fn = (fn: Function) => {
 };
 
 console.log('ejecutando fn', fn(fn5));
+
+//Nullish coalescing operator
+//Sirve para cuando sea conviente que mi valor pueda ser 0 o un string vacio ??
+const difficulty: number | null = 0;
+
+const user2 = {
+  userName: 'luis',
+  difficulty: difficulty ?? 1,
+};
+
+console.log(user2);
+
+//Type asertion
+//Sirve para cuando estamos 100% seguros de que tipo de dato vamos a recibir y queremos forzar el tipo.
+//Se usa as.
+/*No recomendado */
+const element: any = null;
+const elemnt1 = element as number;
+
+/*Recomendado */
+// const input = document.getElementById('username') as HTMLInputElement;/*Forma 1*/
+const input = <HTMLInputElement>document.getElementById('username'); /*Forma 2*/
+input.value;
+
+//Type Narrowing
+//Tecnica para saber que hacer, segun el tipo de dato de una variable
+const narrowingFunction = (x: string | number) => {
+  if (typeof x == 'string') {
+    return x.toUpperCase();
+  }
+  if (typeof x === 'number') {
+    return x.toFixed();
+  }
+
+  return x;
+};
+
+//Type Unknown
+//Sirve para cuando no tenemos idea de que tipo de valor se va a manejar
+//Se pone en lugar de any.
+const procesar = (miVariable: unknown) => {
+  let r = '';
+  if (typeof miVariable === 'string') r = miVariable;
+  if (typeof miVariable === 'number') r = miVariable.toString();
+};
