@@ -300,6 +300,7 @@ class CPersonaje {
   //FORMA 2
   //Declaras propiedades, constructor e inicializas
   private _profesion?: string;
+  private static _equipo: number = 0;
 
   constructor(
     private readonly _id: number,
@@ -311,6 +312,10 @@ class CPersonaje {
   //Getters y setters
   get hp(): number {
     return this._hp;
+  }
+
+  static get equipo(): number {
+    return CPersonaje._equipo;
   }
   //Ejemplo de setter
   // set hp(cantidad: number) {
@@ -326,14 +331,21 @@ class CPersonaje {
     this._hp += cantidad;
     return this._hp;
   }
+
+  //Metodos estaticos
+  static agregarPersonaje(): void {
+    CPersonaje._equipo++;
+  }
 }
 
 const personaje1 = new CPersonaje(1, 'luis', 1, 1);
 personaje1.subirNivel();
 personaje1.cambiarHp(10);
-personaje1.hp = -1;
+CPersonaje.agregarPersonaje();
+console.log('Personajes', CPersonaje.equipo);
 console.dir(personaje1);
-console.log(personaje1.hp);
+// console.log(personaje1.hp);
+
 // comprobar de que clase es un objeto
 if (personaje1 instanceof CPersonaje) {
 }

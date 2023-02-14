@@ -9,8 +9,8 @@ class CPersonaje {
     get hp() {
         return this._hp;
     }
-    set hp(cantidad) {
-        this._hp += cantidad;
+    static get equipo() {
+        return CPersonaje._equipo;
     }
     subirNivel() {
         this._nivel += 1;
@@ -20,13 +20,17 @@ class CPersonaje {
         this._hp += cantidad;
         return this._hp;
     }
+    static agregarPersonaje() {
+        CPersonaje._equipo++;
+    }
 }
+CPersonaje._equipo = 0;
 const personaje1 = new CPersonaje(1, 'luis', 1, 1);
 personaje1.subirNivel();
 personaje1.cambiarHp(10);
-personaje1.hp = -1;
+CPersonaje.agregarPersonaje();
+console.log('Personajes', CPersonaje.equipo);
 console.dir(personaje1);
-console.log(personaje1.hp);
 if (personaje1 instanceof CPersonaje) {
 }
 //# sourceMappingURL=index.js.map
