@@ -8,6 +8,7 @@ abstract class CDatosBasicos {
     private _createdAt: Date,
     private _createdBy: number
   ) {}
+
   //Getters y setters
   get fullYear() {
     return this._createdAt.getFullYear();
@@ -16,6 +17,7 @@ abstract class CDatosBasicos {
   get fullDescripcion() {
     return `${this._name} - ${this._desc}`;
   }
+
   //Metodo abstract
   abstract guardar(): void;
 }
