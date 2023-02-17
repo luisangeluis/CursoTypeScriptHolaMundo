@@ -74,3 +74,82 @@ console.log(programador2.computador);
 /******************** */
 // GENERICOS EN interfaces
 /******************** */
+
+interface KeyValue<T, V> {
+  key: T;
+  value: V;
+}
+
+interface Product {
+  id: string;
+}
+
+const fetchProduct = (): KeyValue<string, Product> => {
+  return {
+    key: 'id del producto',
+    value: { id: 'un value' },
+  };
+};
+
+const fetchStock = (): KeyValue<string, number> => {
+  return {
+    key: 'id del producto',
+    value: 100,
+  };
+};
+
+/******************** */
+//Restricciones en GENERICOS
+/******************** */
+//Con interfaces*****
+// interface Usuario {
+//   id: string;
+//   name: string;
+// }
+
+//Con clases*****
+class Usuario {
+  constructor(public id: string, public name: string) {}
+}
+
+const printUsuario = <T extends Usuario>(t: T): T => {
+  console.log(t);
+  return t;
+};
+
+printUsuario({ id: 'user_id', name: '' });
+
+class Estado<T> {
+  data: T[];
+  constructor(data: T[]) {
+    this.data = data;
+  }
+
+  agregarData(d: T): void {
+    this.data.push(d);
+  }
+
+  get Data(): T[] {
+    return this.data;
+  }
+}
+
+type objectId = {
+  id: string;
+};
+
+class EstadoEliminar<T extends objectId> extends Estado<T> {
+  eliminar(id: string) {
+    this.data = this.data.filter((d) => d.id !== id);
+  }
+}
+
+const estadoEliminar = new EstadoEliminar<Usuario>([]);
+
+console.log(estadoEliminar.Data);
+
+class EstadoUsuarios extends Estado<Usuario> {
+  reiniciarPassword() {}
+}
+
+const estadoUsuarios = new EstadoUsuarios([]);

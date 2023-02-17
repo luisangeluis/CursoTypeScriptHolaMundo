@@ -49,4 +49,43 @@ const programador1 = new CProgramador({
 const programador2 = new CProgramador('hola mundo');
 programador1.computador.encender();
 console.log(programador2.computador);
+const fetchProduct = () => {
+    return {
+        key: 'id del producto',
+        value: { id: 'un value' },
+    };
+};
+const fetchStock = () => {
+    return {
+        key: 'id del producto',
+        value: 100,
+    };
+};
+class Usuario {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+const printUsuario = (t) => {
+    console.log(t);
+    return t;
+};
+printUsuario({ id: 'user_id', name: '' });
+class Estado {
+    constructor(data) {
+        this.data = data;
+    }
+    agregarData(d) {
+        this.data.push(d);
+    }
+    get Data() {
+        return this.data;
+    }
+}
+class EstadoEliminar extends Estado {
+    eliminar(id) { }
+}
+const estadoEliminar = new EstadoEliminar([]);
+console.log(estadoEliminar.Data);
 //# sourceMappingURL=genericos.js.map
