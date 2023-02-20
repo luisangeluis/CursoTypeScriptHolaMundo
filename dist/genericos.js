@@ -84,8 +84,29 @@ class Estado {
     }
 }
 class EstadoEliminar extends Estado {
-    eliminar(id) { }
+    eliminar(id) {
+        this.data = this.data.filter((d) => d.id !== id);
+    }
 }
 const estadoEliminar = new EstadoEliminar([]);
 console.log(estadoEliminar.Data);
+class EstadoUsuarios extends Estado {
+    reiniciarPassword() { }
+}
+const estadoUsuarios = new EstadoUsuarios([]);
+const myCalendar = { id: 1, fuente: 'google', dueno: 'yo' };
+const getPropiedad = (objeto, propiedad) => {
+    return objeto[propiedad];
+};
+console.log(getPropiedad(myCalendar, 'fuente'));
+const p = {
+    x: 1,
+};
+const p2 = {
+    x: 1,
+};
+const p3 = {
+    x: 1,
+    y: 2,
+};
 //# sourceMappingURL=genericos.js.map

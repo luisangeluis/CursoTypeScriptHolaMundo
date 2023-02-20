@@ -153,3 +153,53 @@ class EstadoUsuarios extends Estado<Usuario> {
 }
 
 const estadoUsuarios = new EstadoUsuarios([]);
+
+/******************** */
+//Operador keyof
+/******************** */
+
+type Calendar = {
+  id: number;
+  fuente: string;
+  dueno: string;
+};
+
+const myCalendar: Calendar = { id: 1, fuente: 'google', dueno: 'yo' };
+
+const getPropiedad = <T>(objeto: T, propiedad: keyof T): unknown => {
+  return objeto[propiedad];
+};
+
+console.log(getPropiedad<Calendar>(myCalendar, 'fuente'));
+// getPropiedad<Calendar>(myCalendar, 'fuent');
+
+/******************** */
+//Utility types
+/******************** */
+//Con las utilities puedes crear un type a partir de otro
+type Punto = {
+  x: number;
+  y: number;
+  descripcion?: string;
+};
+
+//Tiene las mismas propiedades que Punto pero se hacen opcionales escribiendo Partial
+type PuntoOpcional = Partial<Punto>;
+//Aqui todas las propiedades son requeridas.
+type PuntoRequerido = Required<Punto>;
+
+//Con omit declaras una variable y decides que otras propiedades quieres omitir
+const p: Omit<Punto, 'y' | 'descripcion'> = {
+  x: 1,
+};
+
+//Con Pick tu decides que propieades quieres agregar
+const p2: Pick<PuntoRequerido, 'x'> = {
+  x: 1,
+};
+
+//Con readonly todas tus propiedades solo las puedes asignar una vez.
+const p3: Readonly<Punto> = {
+  x: 1,
+  y: 2,
+};
