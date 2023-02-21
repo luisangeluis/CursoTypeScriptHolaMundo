@@ -1,0 +1,1 @@
+{"version":3,"file":"ejemplo.js","sourceRoot":"","sources":["../../src/conJavaScript/ejemplo.js"],"names":[],"mappings":";;;AAQA,MAAM,SAAS,GAAG,CAAC,OAAO,EAAE,QAAQ,EAAE,EAAE;IACtC,OAAO,CAAC,GAAG,CAAC,GAAG,OAAO,IAAI,QAAQ,EAAE,CAAC,CAAC;IACtC,OAAO,cAAc,OAAO,IAAI,QAAQ,EAAE,CAAC;AAC7C,CAAC,CAAC;AAEO,8BAAS"}

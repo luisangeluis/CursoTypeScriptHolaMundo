@@ -21,6 +21,9 @@
 // //Habilitar en configuraciones tsconfig noUnusedParameters:true como
 // //configuracion inicial para detectar parametros que no usas en una funcion
 // //Habilitar en tsconfig noImplicitReturns:true para que mi funcion siempr pida un tipo de retorno.
+//Habilitar "allowJs": true y
+//"checkJs": true
+// Habilitar noImplicitOverride: true
 // //Este comando corre (tsc) si se configura donde estan mis archivos .ts y donde generar los archivos .js en el
 // //archivo tsconfig.json
 // //tsc
